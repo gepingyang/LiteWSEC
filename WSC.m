@@ -5,7 +5,7 @@
 %                                                                     %
 %                                                                     %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [ label_orig, label]= LiteWSC(dataname, s, p, r,  k)
+function [ label_orig, label]= WSC(dataname, s, p, r,  k)
 
 % if nargin < 5
 %     r = 5; % The number of nearest prototypes.
