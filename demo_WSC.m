@@ -23,7 +23,7 @@ for i = seed.start : seed.end
      rand('seed',i);    
      fprintf('Seed No: %d\n',i);
      tic;
-     [label, label_orig] = LiteWSC(dataname, s, p, r,  k);
+     [label, label_orig] = WSC(dataname, s, p, r,  k);
      time_once = toc;
      time_all = time_once + time_all;
      label = bestMap(label_orig,label);
