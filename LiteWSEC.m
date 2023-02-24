@@ -82,13 +82,13 @@ function [label, label_orig]= LiteWSEC(dataname, s, p, M, r, lowK, upK,  k)
                 dataname_batch = char(dataname_batch);
                 load( dataname_batch,'fea', 'gnd');             
                 fea = full(fea);   
-                gnd = gnd';
+                %gnd = gnd';
                 gnd = double(gnd);
                 label_orig = [label_orig;gnd];
                 N = size(fea, 1);
                 members_batch = zeros(N,M);
                 for j=1:M
-                    D = EuDist2(fea,prototypes_all(:,:,j),0);   
+                    D = EuDist2(fea,prototypes(:,:,j),0);   
                     [dump1, idx1] = min(D, [], 2);
                     current_label = prototypes_label(:,j);
                     members_batch(:,j) = current_label(idx1);
@@ -96,7 +96,7 @@ function [label, label_orig]= LiteWSEC(dataname, s, p, M, r, lowK, upK,  k)
                 end
                 clear  fea
                 label_batch =  mode(members_batch, 2);
-                label = [label,label_batch];
+                label = [label;label_batch];
              end
          end
 end
